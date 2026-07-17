@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แฟ้มสะสมผลงาน (Portfolio) - นายธราเทพ พลเดช</title>
-    <!-- นำเข้าฟอนต์ Kanit เพื่อความทันสมัยและเป็นทางการ -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* รีเซ็ตค่าเริ่มต้น */
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +19,6 @@
             line-height: 1.6;
         }
 
-        /* แถบเมนูนำทาง (Header / Nav) */
         header {
             background-color: #ffffff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -68,14 +65,12 @@
             background-color: #f1f5f9;
         }
 
-        /* ส่วนจัดแสดงเนื้อหาหลัก (Main Content Section) */
         .container {
             max-width: 1200px;
             margin: 50px auto;
             padding: 0 20px;
         }
 
-        /* ส่วนโปรไฟล์บนซ้าย (Hero Grid) */
         .hero-section {
             background-color: #ffffff;
             border-radius: 20px;
@@ -87,7 +82,6 @@
             align-items: center;
         }
 
-        /* กล่องจัดการรูปภาพให้อยู่ซ้ายมือและขนาดใหญ่ขึ้น */
         .profile-img-container {
             display: flex;
             justify-content: center;
@@ -97,13 +91,12 @@
         .profile-img {
             width: 280px;
             height: 280px;
-            border-radius: 20px; /* ใช้ขอบโค้งมนแบบโมเดิร์นแทนวงกลม */
+            border-radius: 20px;
             object-fit: cover;
             border: 6px solid #eff6ff;
             box-shadow: 0 10px 20px rgba(30, 58, 138, 0.1);
         }
 
-        /* รายละเอียดทางฝั่งขวา */
         .profile-details {
             display: flex;
             flex-direction: column;
@@ -142,10 +135,9 @@
             font-weight: 500;
         }
 
-        /* กลุ่มปุ่มกดไปหน้าต่อไป */
+        /* ปรับเหลือช่องทางกดปุ่มเดียวเด่น ๆ */
         .cta-buttons {
             display: flex;
-            gap: 15px;
         }
 
         .btn-primary {
@@ -153,8 +145,9 @@
             background-color: #1e3a8a;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
@@ -166,23 +159,6 @@
             box-shadow: 0 6px 15px rgba(30, 58, 138, 0.3);
         }
 
-        .btn-secondary {
-            display: inline-block;
-            background-color: #f1f5f9;
-            color: #475569;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background-color: #e2e8f0;
-            color: #1f2937;
-        }
-
-        /* ส่วนท้ายของเว็บไซต์ (Footer) */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -193,7 +169,6 @@
             margin-top: 80px;
         }
 
-        /* การแสดงผลบนอุปกรณ์มือถือ (Responsive Design) */
         @media (max-width: 900px) {
             .hero-section {
                 grid-template-columns: 1fr;
@@ -217,8 +192,6 @@
 
             .cta-buttons {
                 justify-content: center;
-                flex-direction: column;
-                width: 100%;
             }
 
             .nav-container {
@@ -230,7 +203,6 @@
 </head>
 <body>
 
-    <!-- แถบเมนูนำทาง -->
     <header>
         <div class="nav-container">
             <div class="logo">PORTFOLIO</div>
@@ -244,15 +216,12 @@
         </div>
     </header>
 
-    <!-- พื้นที่แสดงข้อมูลหลัก -->
     <main class="container">
         <section class="hero-section">
-            <!-- ส่วนที่ 1: รูปภาพโปรไฟล์ (อยู่ด้านซ้ายมือ) -->
             <div class="profile-img-container">
                 <img src="images/WIN_20260626_11_48_02_Pro.jpg" alt="รูปภาพนายธราเทพ พลเดช" class="profile-img">
             </div>
 
-            <!-- ส่วนที่ 2: ข้อมูลส่วนตัว (อยู่ด้านขวามือ) -->
             <div class="profile-details">
                 <span class="tag-school">โรงเรียนพานทอง</span>
                 <h1>นายธราเทพ พลเดช</h1>
@@ -261,16 +230,14 @@
                     ยินดีต้อนรับสู่เว็บไซต์แฟ้มสะสมผลงานและโครงงานส่วนตัวของผม 
                 </div>
                 
-                <!-- ปุ่มเชื่อมโยงเพื่อให้ดูเป็นระบบพร้อมทำโครงการต่อ -->
+                <!-- เหลือทางเลือกกดเข้าดูทางเดียวตามบรีฟ -->
                 <div class="cta-buttons">
-                    <a href="personal.html" class="btn-primary">ทำความรู้จักฉันเพิ่มขึ้น</a>
-                    <a href="activities.html" class="btn-secondary">ดูผลงานและกิจกรรม</a>
+                    <a href="personal.html" class="btn-primary">เริ่มต้นทำความรู้จักฉัน</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ส่วนท้ายเว็บ -->
     <footer>
         <p>© 2026 Tharathep Pholdech. All Rights Reserved. | Phanthong School</p>
     </footer>
