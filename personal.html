@@ -4,123 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประวัติส่วนตัว - นายธราเทพ พลเดช</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* จัดวางสไตล์หลักให้ตรงกับหน้าแรก */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        /* คงไว้ซึ่งสไตล์หลักจากหน้าแรกทั้งหมดเพื่อความเป็นธีมเดียวกัน */
+        * {
             margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
         }
 
-        /* สไตล์เมนูนำทาง (Navigation Bar) */
-        .nav-menu {
-            margin-bottom: 30px;
-            text-align: center;
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
         }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+
         .nav-menu a {
             text-decoration: none;
-            color: #555;
-            margin: 0 10px;
-            font-weight: bold;
-            transition: 0.3s ease;
-        }
-        .nav-menu a:hover, .nav-menu a.active {
-            color: #007bff;
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        /* การ์ดเนื้อหาคุมโทนสีขาว ขอบมน เงาละมุน แบบเดียวกับหน้าแรก */
+        /* หน้าไหนเปิดอยู่ให้ใส่ class="active" ที่ปุ่มเมนูหน้านั้น */
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: #1e3a8a;
+            background-color: #f1f5f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* กล่องเนื้อหาแบบพรีเมียม ถอดดีไซน์มาจากหน้าแรก */
         .content-card {
             background-color: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        /* ตกแต่งเนื้อหาข้างใน */
+        .content-body {
+            font-size: 18px;
+            color: #475569;
+        }
+
+        /* สไตล์ตาราง/ข้อมูลสำหรับนำไปประยุกต์ใช้ */
+        .info-table {
             width: 100%;
-            box-sizing: border-box;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        /* หัวข้อสีน้ำเงินหลัก */
-        h2 {
-            color: #007bff;
-            font-size: 24px;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 25px;
+        .info-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-table td.label {
+            font-weight: 600;
+            color: #1e3a8a;
+            width: 25%;
+        }
+
+        footer {
             text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 14px;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
         }
 
-        /* รายละเอียดข้อมูล */
-        .profile-detail {
-            line-height: 1.8;
-            font-size: 16px;
-            text-align: left;
-        }
-        .profile-detail p {
-            margin: 12px 0;
-            border-bottom: 1px dotted #e2e8f0; /* เส้นคั่นจุดไข่ปลาบาง ๆ ดูเรียบร้อย */
-            padding-bottom: 8px;
-        }
-        .profile-detail strong {
-            color: #007bff; /* ไฮไลต์หัวข้อย่อยด้วยสีน้ำเงินธีมหลัก */
-            display: inline-block;
-            width: 130px; /* จัดช่องไฟให้หัวข้อตรงกันสวยงาม */
-        }
-
-        /* ปุ่มย้อนกลับหน้าแรก (ถ้ามี) */
-        .btn-back {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 30px;
-            transition: 0.3s;
-        }
-        .btn-back:hover {
-            background-color: #0056b3;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .info-table td {
+                display: block;
+                width: 100% !important;
+                padding: 8px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- เมนูนำทางเชื่อมโยง 5 หน้า -->
-    <nav class="nav-menu">
-        <a href="index.html">หน้าแรก</a> | 
-        <a href="personal.html" class="active">ประวัติส่วนตัว</a> | 
-        <a href="education.html">ประวัติการศึกษา</a> | 
-        <a href="activities.html">กิจกรรม</a> | 
-        <a href="contact.html">การติดต่อ</a>
-    </nav>
-
-    <!-- การ์ดประวัติส่วนตัวคุมโทน -->
-    <div class="content-card">
-        <h2>About Me / ประวัติส่วนตัว</h2>
-        
-        <div class="profile-detail">
-            <p><strong>ชื่อ-นามสกุล:</strong> นายธราเทพ พลเดช</p>
-            <p><strong>ชื่อเล่น:</strong> [ใส่ชื่อเล่นของน้อง]</p>
-            <p><strong>วันเกิด:</strong> [ใส่วัน/เดือน/ปีเกิด]</p>
-            <p><strong>แผนการเรียน:</strong> มัธยมศึกษาปีที่ 6/2</p>
-            <p><strong>งานอดิเรก:</strong> [เช่น เล่นกีฬา, อ่านหนังสือ, ฟังเพลง]</p>
-            <p><strong>ความสามารถพิเศษ:</strong> [เช่น คอมพิวเตอร์, ฟุตบอล, วาดภาพ]</p>
-            <p><strong>คติประจำใจ:</strong> [ใส่คติประจำใจที่ชื่นชอบ]</p>
+    <!-- แถบเมนูนำทาง (เหมือนหน้าแรก) -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">PORTFOLIO</div>
+            <nav class="nav-menu">
+                <a href="index.html">หน้าแรก</a>
+                <a href="personal.html" class="active">ประวัติส่วนตัว</a> <!-- ย้าย active มาไว้ที่หน้านี้ -->
+                <a href="education.html">ประวัติการศึกษา</a>
+                <a href="activities.html">กิจกรรม</a>
+                <a href="contact.html">การติดต่อ</a>
+            </nav>
         </div>
+    </header>
 
-        <a href="index.html" class="btn-back">กลับสู่หน้าแรก</a>
-    </div>
+    <!-- พื้นที่แสดงข้อมูลของหน้าอื่น ๆ -->
+    <main class="container">
+        <div class="content-card">
+            <div class="page-header">
+                <h2 class="page-title">ข้อมูลประวัติส่วนตัว</h2>
+            </div>
+            
+            <div class="content-body">
+                <p>คุณสามารถเพิ่มเนื้อหา รายละเอียด หรือตารางข้อมูลประวัติส่วนตัว/โครงงาน ลงในส่วนนี้ได้เลย โดยหน้าเว็บจะคงความสวยงามและเป็นทางการเหมือนหน้าแรกทุกประการครับ</p>
+                
+                <!-- ตัวอย่างการจัดข้อมูลให้ดูดีเป็นระเบียบ -->
+                <table class="info-table">
+                    <tr>
+                        <td class="label">ชื่อ-นามสกุล</td>
+                        <td>นายธราเทพ พลเดช</td>
+                    </tr>
+                    <tr>
+                        <td class="label">การศึกษา</td>
+                        <td>ชั้นมัธยมศึกษาปีที่ 6/2 โรงเรียนพานทอง</td>
+                    </tr>
+                    <tr>
+                        <td class="label">ความสนใจพิเศษ</td>
+                        <td>การพัฒนาเว็บไซต์, เทคโนโลยี, และคอมพิวเตอร์</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Tharathep Pholdech. All Rights Reserved. | Phanthong School</p>
+    </footer>
 
 </body>
 </html>
