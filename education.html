@@ -1,91 +1,268 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติการศึกษา - ธราเทพ พลเดช</title>
+    <title>ประวัติการศึกษา - นายธราเทพ พลเดช</title>
+    <!-- ใช้ฟอนต์ Kanit ร่วมกันทุกหน้าเพื่อความเป็นระเบียบเรียบร้อย -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        /* ควบคุมธีมหลักให้เหมือนหน้าอื่นๆ ในโปรเจกต์ */
+        * {
             margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
         }
-        .nav-menu { margin-bottom: 30px; }
-        .nav-menu a { text-decoration: none; color: #555; margin: 0 10px; font-weight: bold; transition: 0.3s; }
-        .nav-menu a:hover, .nav-menu a.active { color: #007bff; }
-        
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* แถบเมนูนำทางระดับพรีเมียม */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: #1e3a8a;
+            background-color: #f1f5f9;
+        }
+
+        /* โครงสร้างเนื้อหา */
+        .container {
+            max-width: 800px; /* จำกัดขนาดให้พอดีกับไทม์ไลน์เพื่อให้จัดวางได้สวยงาม */
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
         .content-card {
             background-color: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 600px;
-            width: 100%;
-            box-sizing: border-box;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
         }
-        h2 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        
+
+        .page-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        /* ระบบดีไซน์เส้น Timeline */
         .timeline {
             position: relative;
-            padding-left: 20px;
-            border-left: 2px solid #007bff;
-            margin-top: 20px;
+            padding-left: 35px;
+            border-left: 3px solid #e2e8f0;
+            margin-top: 30px;
+            margin-left: 10px;
         }
+
+        /* รายการข้อมูลในแต่ละช่วงเวลา */
         .timeline-item {
-            margin-bottom: 25px;
             position: relative;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* เพิ่มลูกเล่นขยายขนาดและขอบน้ำเงินเมื่อนำเมาส์ไปชี้ */
+        .timeline-item:hover {
+            transform: translateX(5px);
+            border-color: #bfdbfe;
+            background-color: #f1f5f9;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.05);
+        }
+
+        /* จุดวงกลมบนเส้นไทม์ไลน์ */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -26px;
-            top: 5px;
-            background: #007bff;
-            width: 10px;
-            height: 10px;
+            left: -42px;
+            top: 24px;
+            background: #ffffff;
+            border: 3px solid #1e3a8a;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s ease;
         }
-        .year { font-weight: bold; color: #0056b3; }
-        .school { font-size: 16px; margin: 5px 0; font-weight: bold; }
+
+        .timeline-item:hover::before {
+            background: #1e3a8a;
+            transform: scale(1.2);
+        }
+
+        /* ตกแต่งตัวเลขปีการศึกษา */
+        .year {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0369a1;
+            background-color: #e0f2fe;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .school {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .school-detail {
+            font-size: 15px;
+            color: #475569;
+        }
+
+        /* ส่วนท้าย (Footer) */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 14px;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+        }
+
+        /* ปรับแต่งการแสดงผลสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .page-title {
+                font-size: 26px;
+            }
+            .timeline {
+                padding-left: 25px;
+            }
+            .timeline-item::before {
+                left: -32px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="nav-menu">
-        <a href="index.html">หน้าแรก</a> | 
-        <a href="personal.html">ประวัติส่วนตัว</a> | 
-        <a href="education.html" class="active">ประวัติการศึกษา</a> | 
-        <a href="activities.html">กิจกรรม</a> | 
-        <a href="contact.html">การติดต่อ</a>
-    </nav>
-
-    <div class="content-card">
-        <h2>Education / ประวัติการศึกษา</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
-                <div class="school">ระดับชั้นมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
-                <div>โรงเรียนพานทอง (ชั้น ม.6/2)</div>
-            </div>
-            <div class="timeline-item">
-                <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
-                <div class="school">ระดับชั้นมัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
-                <div>โรงเรียน[ระบุชื่อโรงเรียนเดิม]</div>
-            </div>
-            <div class="timeline-item">
-                <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
-                <div class="school">ระดับชั้นประถมศึกษา (ป.1 - ป.6)</div>
-                <div>โรงเรียน[ระบุชื่อโรงเรียนเดิม]</div>
-            </div>
+    <!-- เมนูนำทางโครงงานเว็บไซต์ (คงสไตล์เดียวกับหน้าอื่น) -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">PORTFOLIO</div>
+            <nav class="nav-menu">
+                <a href="index.html">หน้าแรก</a>
+                <a href="personal.html">ประวัติส่วนตัว</a>
+                <a href="education.html" class="active">ประวัติการศึกษา</a>
+                <a href="activities.html">กิจกรรม</a>
+                <a href="contact.html">การติดต่อ</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- พื้นที่แสดงข้อมูลประวัติการศึกษา -->
+    <main class="container">
+        <div class="content-card">
+            
+            <div class="page-header">
+                <h2 class="page-title">Education / ประวัติการศึกษา</h2>
+                <p class="page-subtitle">ข้อมูลประวัติและลำดับขั้นการศึกษาตั้งแต่ระดับประถมศึกษาจนถึงปัจจุบัน</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- ระดับชั้นมัธยมศึกษาตอนปลาย -->
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
+                    <div class="school">ระดับชั้นมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
+                    <div class="school-detail">โรงเรียนพานทอง (ห้องเรียน ม.6/2)</div>
+                </div>
+
+                <!-- ระดับชั้นมัธยมศึกษาตอนต้น -->
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
+                    <div class="school">ระดับชั้นมัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
+                    <div class="school-detail">โรงเรียน [ระบุชื่อโรงเรียนเดิมของคุณ]</div>
+                </div>
+
+                <!-- ระดับชั้นประถมศึกษา -->
+                <div class="timeline-item">
+                    <div class="year">ปีการศึกษา [ใส่ พ.ศ.]</div>
+                    <div class="school">ระดับชั้นประถมศึกษา (ป.1 - ป.6)</div>
+                    <div class="school-detail">โรงเรียน [ระบุชื่อโรงเรียนเดิมของคุณ]</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ส่วนท้ายเว็บ -->
+    <footer>
+        <p>© 2026 Tharathep Pholdech. All Rights Reserved. | Phanthong School</p>
+    </footer>
 
 </body>
 </html>
