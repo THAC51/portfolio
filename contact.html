@@ -4,71 +4,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ช่องทางการติดต่อ - ธราเทพ พลเดช</title>
+    <title>ช่องทางการติดต่อ - นายธราเทพ พลเดช</title>
+    <!-- ใช้ฟอนต์ Kanit เดียวกันกับทุกหน้าเพื่อความเป็นเอกภาพ -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        /* ควบคุมธีมหลักให้เหมือนหน้าแรกและหน้ากิจกรรม */
+        * {
             margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
         }
-        .nav-menu { margin-bottom: 30px; }
-        .nav-menu a { text-decoration: none; color: #555; margin: 0 10px; font-weight: bold; transition: 0.3s; }
-        .nav-menu a:hover, .nav-menu a.active { color: #007bff; }
-        
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* เมนูนำทางสไตล์พรีเมียม */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover, 
+        .nav-menu a.active {
+            color: #1e3a8a;
+            background-color: #f1f5f9;
+        }
+
+        /* โครงสร้างเนื้อหา */
+        .container {
+            max-width: 800px; /* จำกัดความกว้างให้พอดีกับการติดต่อ เพื่อความสวยงาม */
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
         .content-card {
             background-color: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
-            width: 100%;
-            box-sizing: border-box;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .page-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 20px;
+            margin-bottom: 35px;
             text-align: center;
         }
-        h2 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; text-align: left; }
-        
-        .contact-method {
-            margin: 20px 0;
-            text-align: left;
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        /* รูปแบบกล่องข้อมูลการติดต่อ */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #bfdbfe;
+            background-color: #f1f5f9;
+            transform: translateX(5px);
+        }
+
+        /* ป้ายกำกับช่องทางติดต่อ */
+        .contact-label {
+            font-weight: 600;
+            color: #1e3a8a;
+            width: 150px;
+            flex-shrink: 0;
             font-size: 16px;
         }
-        .contact-method p {
-            margin: 10px 0;
+
+        /* รายละเอียดข้อมูลติดต่อ */
+        .contact-value {
+            color: #475569;
+            font-size: 16px;
+            word-break: break-word;
         }
-        .contact-method strong {
-            color: #007bff;
-            display: inline-block;
-            width: 100px;
+
+        /* ส่วนท้าย (Footer) */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 14px;
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+        }
+
+        /* ปรับแต่งสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .content-card {
+                padding: 30px 20px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .page-title {
+                font-size: 26px;
+            }
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .contact-label {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="nav-menu">
-        <a href="index.html">หน้าแรก</a> | 
-        <a href="personal.html">ประวัติส่วนตัว</a> | 
-        <a href="education.html">ประวัติการศึกษา</a> | 
-        <a href="activities.html">กิจกรรม</a> | 
-        <a href="contact.html" class="active">การติดต่อ</a>
-    </nav>
-
-    <div class="content-card">
-        <h2>Contact / การติดต่อ</h2>
-        <p>สามารถติดต่อหรือติดตามผลงานของผมได้ตามช่องทางด้านล่างนี้ครับ</p>
-        
-        <div class="contact-method">
-            <p><strong>เบอร์โทรศัพท์:</strong> [ใส่เบอร์โทรของน้อง]</p>
-            <p><strong>อีเมล:</strong> [ใส่ Email เช่น example@gmail.com]</p>
-            <p><strong>Facebook:</strong> [ใส่ชื่อเฟซบุ๊ก]</p>
-            <p><strong>Instagram:</strong> [ใส่ชื่อไอจี]</p>
-            <p><strong>ที่อยู่:</strong> โรงเรียนพานทอง อ.พานทอง จ.ชลบุรี</p>
+    <!-- แถบเมนูนำทาง (คงไว้แบบเดียวกับหน้าหลักเพื่อความเป็นระบบ) -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">PORTFOLIO</div>
+            <nav class="nav-menu">
+                <a href="index.html">หน้าแรก</a>
+                <a href="personal.html">ประวัติส่วนตัว</a>
+                <a href="education.html">ประวัติการศึกษา</a>
+                <a href="activities.html">กิจกรรม</a>
+                <a href="contact.html" class="active">การติดต่อ</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <!-- พื้นที่แสดงผลข้อมูลการติดต่อ -->
+    <main class="container">
+        <div class="content-card">
+            
+            <div class="page-header">
+                <h2 class="page-title">Contact / การติดต่อ</h2>
+                <p class="page-subtitle">สามารถติดต่อหรือติดตามผลงานของผมได้ตามช่องทางด้านล่างนี้ครับ</p>
+            </div>
+            
+            <div class="contact-list">
+                <!-- เบอร์โทรศัพท์ -->
+                <div class="contact-item">
+                    <span class="contact-label">เบอร์โทรศัพท์</span>
+                    <span class="contact-value">[ใส่เบอร์โทรศัพท์ของคุณ]</span>
+                </div>
+
+                <!-- อีเมล -->
+                <div class="contact-item">
+                    <span class="contact-label">อีเมล</span>
+                    <span class="contact-value">[ใส่ Email เช่น example@gmail.com]</span>
+                </div>
+
+                <!-- Facebook -->
+                <div class="contact-item">
+                    <span class="contact-label">Facebook</span>
+                    <span class="contact-value">[ใส่ชื่อเฟซบุ๊ก]</span>
+                </div>
+
+                <!-- Instagram -->
+                <div class="contact-item">
+                    <span class="contact-label">Instagram</span>
+                    <span class="contact-value">[ใส่ชื่อไอจี]</span>
+                </div>
+
+                <!-- ที่อยู่ -->
+                <div class="contact-item">
+                    <span class="contact-label">ที่อยู่</span>
+                    <span class="contact-value">โรงเรียนพานทอง อ.พานทอง จ.ชลบุรี</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ส่วนท้ายเว็บ -->
+    <footer>
+        <p>© 2026 Tharathep Pholdech. All Rights Reserved. | Phanthong School</p>
+    </footer>
 
 </body>
 </html>
