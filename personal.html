@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว - ธราเทพ พลเดช</title>
+    <title>ประวัติส่วนตัว - นายธราเทพ พลเดช</title>
     <style>
+        /* จัดวางสไตล์หลักให้ตรงกับหน้าแรก */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -14,27 +15,88 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
-        .nav-menu { margin-bottom: 30px; }
-        .nav-menu a { text-decoration: none; color: #555; margin: 0 10px; font-weight: bold; transition: 0.3s; }
-        .nav-menu a:hover, .nav-menu a.active { color: #007bff; }
-        
+
+        /* สไตล์เมนูนำทาง (Navigation Bar) */
+        .nav-menu {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #007bff;
+        }
+
+        /* การ์ดเนื้อหาคุมโทนสีขาว ขอบมน เงาละมุน แบบเดียวกับหน้าแรก */
         .content-card {
             background-color: #ffffff;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
             box-sizing: border-box;
         }
-        h2 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        .profile-detail { line-height: 1.8; font-size: 16px; }
-        .profile-detail strong { color: #007bff; }
+
+        /* หัวข้อสีน้ำเงินหลัก */
+        h2 {
+            color: #007bff;
+            font-size: 24px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* รายละเอียดข้อมูล */
+        .profile-detail {
+            line-height: 1.8;
+            font-size: 16px;
+            text-align: left;
+        }
+        .profile-detail p {
+            margin: 12px 0;
+            border-bottom: 1px dotted #e2e8f0; /* เส้นคั่นจุดไข่ปลาบาง ๆ ดูเรียบร้อย */
+            padding-bottom: 8px;
+        }
+        .profile-detail strong {
+            color: #007bff; /* ไฮไลต์หัวข้อย่อยด้วยสีน้ำเงินธีมหลัก */
+            display: inline-block;
+            width: 130px; /* จัดช่องไฟให้หัวข้อตรงกันสวยงาม */
+        }
+
+        /* ปุ่มย้อนกลับหน้าแรก (ถ้ามี) */
+        .btn-back {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
 
+    <!-- เมนูนำทางเชื่อมโยง 5 หน้า -->
     <nav class="nav-menu">
         <a href="index.html">หน้าแรก</a> | 
         <a href="personal.html" class="active">ประวัติส่วนตัว</a> | 
@@ -43,17 +105,21 @@
         <a href="contact.html">การติดต่อ</a>
     </nav>
 
+    <!-- การ์ดประวัติส่วนตัวคุมโทน -->
     <div class="content-card">
-        <h2>Personal Info / ประวัติส่วนตัว</h2>
+        <h2>About Me / ประวัติส่วนตัว</h2>
+        
         <div class="profile-detail">
             <p><strong>ชื่อ-นามสกุล:</strong> นายธราเทพ พลเดช</p>
             <p><strong>ชื่อเล่น:</strong> [ใส่ชื่อเล่นของน้อง]</p>
             <p><strong>วันเกิด:</strong> [ใส่วัน/เดือน/ปีเกิด]</p>
-            <p><strong>แผนการเรียน:</strong> [ใส่แผนการเรียน เช่น วิทย์-คณิต / ศิลป์-คำนวณ]</p>
-            <p><strong>งานอดิเรก:</strong> [เช่น อ่านหนังสือ, เล่นกีฬา, เขียนโปรแกรม, เล่นเกม]</p>
-            <p><strong>ความสามารถพิเศษ:</strong> [เช่น คอมพิวเตอร์, ดนตรี, ภาษาอังกฤษ]</p>
-            <p><strong>คติประจำใจ:</strong> [ใส่คติประจำใจที่ชอบ]</p>
+            <p><strong>แผนการเรียน:</strong> มัธยมศึกษาปีที่ 6/2</p>
+            <p><strong>งานอดิเรก:</strong> [เช่น เล่นกีฬา, อ่านหนังสือ, ฟังเพลง]</p>
+            <p><strong>ความสามารถพิเศษ:</strong> [เช่น คอมพิวเตอร์, ฟุตบอล, วาดภาพ]</p>
+            <p><strong>คติประจำใจ:</strong> [ใส่คติประจำใจที่ชื่นชอบ]</p>
         </div>
+
+        <a href="index.html" class="btn-back">กลับสู่หน้าแรก</a>
     </div>
 
 </body>
