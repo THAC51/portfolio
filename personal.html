@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประวัติส่วนตัว - นายธราเทพ พลเดช</title>
+    <!-- ใช้ฟอนต์ Kanit ร่วมกันทุกหน้าเพื่อความเป็นเอกภาพ -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* คงไว้ซึ่งสไตล์หลักจากหน้าแรกทั้งหมดเพื่อความเป็นธีมเดียวกัน */
+        /* ควบคุมธีมหลักให้เหมือนหน้าอื่นๆ ในโปรเจกต์ */
         * {
             margin: 0;
             padding: 0;
@@ -20,6 +21,7 @@
             line-height: 1.6;
         }
 
+        /* แถบเมนูนำทางระดับพรีเมียม */
         header {
             background-color: #ffffff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -60,20 +62,19 @@
             transition: all 0.3s ease;
         }
 
-        /* หน้าไหนเปิดอยู่ให้ใส่ class="active" ที่ปุ่มเมนูหน้านั้น */
         .nav-menu a:hover, 
         .nav-menu a.active {
             color: #1e3a8a;
             background-color: #f1f5f9;
         }
 
+        /* โครงสร้างเนื้อหา */
         .container {
-            max-width: 1200px;
+            max-width: 900px; /* ขนาดกำลังสวยสำหรับหน้าประวัติส่วนตัว */
             margin: 50px auto;
             padding: 0 20px;
         }
 
-        /* กล่องเนื้อหาแบบพรีเมียม ถอดดีไซน์มาจากหน้าแรก */
         .content-card {
             background-color: #ffffff;
             border-radius: 20px;
@@ -84,39 +85,71 @@
         .page-header {
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .page-title {
             font-size: 32px;
             font-weight: 700;
             color: #1e3a8a;
+            margin-bottom: 8px;
         }
 
-        /* ตกแต่งเนื้อหาข้างใน */
-        .content-body {
-            font-size: 18px;
-            color: #475569;
+        .page-subtitle {
+            font-size: 16px;
+            color: #64748b;
         }
 
-        /* สไตล์ตาราง/ข้อมูลสำหรับนำไปประยุกต์ใช้ */
+        /* รูปแบบตารางข้อมูลประวัติ */
         .info-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 10px;
+        }
+
+        .info-table tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .info-table tr:hover {
+            background-color: #f8fafc;
         }
 
         .info-table td {
-            padding: 12px 15px;
+            padding: 18px 15px;
             border-bottom: 1px solid #f1f5f9;
+            font-size: 16px;
         }
 
         .info-table td.label {
             font-weight: 600;
             color: #1e3a8a;
             width: 25%;
+            min-width: 140px;
         }
 
+        .info-table td.value {
+            color: #475569;
+        }
+
+        /* ตกแต่งแท็กสำหรับงานอดิเรก */
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .hobby-tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        /* ส่วนท้าย (Footer) */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -127,6 +160,7 @@
             margin-top: 80px;
         }
 
+        /* ปรับแต่งสำหรับการแสดงผลบนมือถือ */
         @media (max-width: 768px) {
             .content-card {
                 padding: 30px 20px;
@@ -135,23 +169,30 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            .page-title {
+                font-size: 26px;
+            }
             .info-table td {
                 display: block;
                 width: 100% !important;
-                padding: 8px 0;
+                padding: 10px 5px;
+            }
+            .info-table td.label {
+                border-bottom: none;
+                padding-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- แถบเมนูนำทาง (เหมือนหน้าแรก) -->
+    <!-- แถบเมนูนำทาง (คงสไตล์เดิมเพื่อความเป็นระบบ) -->
     <header>
         <div class="nav-container">
             <div class="logo">PORTFOLIO</div>
             <nav class="nav-menu">
                 <a href="index.html">หน้าแรก</a>
-                <a href="personal.html" class="active">ประวัติส่วนตัว</a> <!-- ย้าย active มาไว้ที่หน้านี้ -->
+                <a href="personal.html" class="active">ประวัติส่วนตัว</a>
                 <a href="education.html">ประวัติการศึกษา</a>
                 <a href="activities.html">กิจกรรม</a>
                 <a href="contact.html">การติดต่อ</a>
@@ -159,35 +200,65 @@
         </div>
     </header>
 
-    <!-- พื้นที่แสดงข้อมูลของหน้าอื่น ๆ -->
+    <!-- พื้นที่แสดงข้อมูลประวัติส่วนตัว -->
     <main class="container">
         <div class="content-card">
+            
             <div class="page-header">
-                <h2 class="page-title">ข้อมูลประวัติส่วนตัว</h2>
+                <h2 class="page-title">Personal Profile / ประวัติส่วนตัว</h2>
+                <p class="page-subtitle">ข้อมูลพื้นฐานและความสนใจส่วนตัวของผม</p>
             </div>
             
-            <div class="content-body">
-                <p>คุณสามารถเพิ่มเนื้อหา รายละเอียด หรือตารางข้อมูลประวัติส่วนตัว/โครงงาน ลงในส่วนนี้ได้เลย โดยหน้าเว็บจะคงความสวยงามและเป็นทางการเหมือนหน้าแรกทุกประการครับ</p>
-                
-                <!-- ตัวอย่างการจัดข้อมูลให้ดูดีเป็นระเบียบ -->
-                <table class="info-table">
-                    <tr>
-                        <td class="label">ชื่อ-นามสกุล</td>
-                        <td>นายธราเทพ พลเดช</td>
-                    </tr>
-                    <tr>
-                        <td class="label">การศึกษา</td>
-                        <td>ชั้นมัธยมศึกษาปีที่ 6/2 โรงเรียนพานทอง</td>
-                    </tr>
-                    <tr>
-                        <td class="label">ความสนใจพิเศษ</td>
-                        <td>การพัฒนาเว็บไซต์, เทคโนโลยี, และคอมพิวเตอร์</td>
-                    </tr>
-                </table>
-            </div>
+            <table class="info-table">
+                <!-- ชื่อ-นามสกุล -->
+                <tr>
+                    <td class="label">ชื่อ-นามสกุล</td>
+                    <td class="value">นายธราเทพ พลเดช</td>
+                </tr>
+
+                <!-- การศึกษาปัจจุบัน -->
+                <tr>
+                    <td class="label">การศึกษา</td>
+                    <td class="value">ชั้นมัธยมศึกษาปีที่ 6/2 โรงเรียนพานทอง</td>
+                </tr>
+
+                <!-- วันเกิด / อายุ -->
+                <tr>
+                    <td class="label">วันเกิด</td>
+                    <td class="value">[ใส่วัน เดือน ปีเกิดของคุณ เช่น 1 มกราคม 25xx]</td>
+                </tr>
+
+                <!-- แผนการเรียน -->
+                <tr>
+                    <td class="label">แผนการเรียน</td>
+                    <td class="value">[ระบุแผนการเรียน เช่น วิทย์-คณิต / ศิลป์-คำนวณ / คอมพิวเตอร์]</td>
+                </tr>
+
+                <!-- ที่อยู่ปัจจุบัน (เพิ่มใหม่ตามคำขอ) -->
+                <tr>
+                    <td class="label">ที่อยู่ปัจจุบัน</td>
+                    <td class="value">[ใส่ที่อยู่จริงหรือข้อมูลสังเขป เช่น อำเภอพานทอง จังหวัดชลบุรี]</td>
+                </tr>
+
+                <!-- งานอดิเรก (เพิ่มใหม่ตามคำขอ พร้อมดีไซน์แท็กที่สวยงาม) -->
+                <tr>
+                    <td class="label">งานอดิเรก</td>
+                    <td class="value">
+                        <div class="hobby-tags">
+                            <span class="hobby-tag">เขียนโปรแกรม / พัฒนาเว็บ</span>
+                            <span class="hobby-tag">อ่านหนังสือเทคโนโลยี</span>
+                            <span class="hobby-tag">ฟังเพลง</span>
+                            <span class="hobby-tag">เล่นกีฬา</span>
+                            <!-- สามารถพิมพ์แก้หรือเพิ่มงานอดิเรกได้ที่นี่ โดยก๊อปปี้โค้ดบรรทัดด้านบนเปลี่ยนข้อความ -->
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </main>
 
+    <!-- ส่วนท้ายเว็บ -->
     <footer>
         <p>© 2026 Tharathep Pholdech. All Rights Reserved. | Phanthong School</p>
     </footer>
